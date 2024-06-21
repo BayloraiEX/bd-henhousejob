@@ -92,22 +92,6 @@ Config.Consumables = {
         ['hh_sloppy_joe'] = math.random(50, 70),
         ['hh_wings'] = math.random(50, 70),
     },
-    drink = {
-        --HORNYS ITEMS --
-        ['hb_hercules'] = math.random(45, 65),
-        ['hb_junk'] = math.random(45, 65),
-        ['hb_orangotang'] = math.random(45, 65),
-        ['hb_ecola'] = math.random(45, 65),
-        ['hb_raine'] = math.random(45, 65),
-        ['hb_sprunk'] = math.random(45, 65),
-        ['hb_water_bottle'] = math.random(45, 65),
-        -- Ice cream
-        ['hb_cherry_float'] = math.random(20, 40),
-        ['hb_cherrypopper'] = math.random(15, 30),
-        ['hb_icecream_cake'] = math.random(10, 20),
-        ['hb_icecream_cone'] = math.random(15, 30),
-        ['hb_icecream_nuggets'] = math.random(10, 20),
-    },
     alcohol = {
         --HEN HOUSE DRINKS
         ['hh_ambeer'] = math.random(30, 40),
