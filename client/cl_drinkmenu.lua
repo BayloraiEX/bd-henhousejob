@@ -21,7 +21,7 @@ exports['qb-target']:AddBoxZone("HenHouseBeerMenu", vector3(-293.76, 6264.28, 31
 })
 ----- | CREATING MENU | -----
 lib.registerContext({
-    id = 'beer_menu',
+    id = 'hen_beer_menu',
     title = 'Beer Fridge',
     options = {
       {
@@ -77,7 +77,7 @@ lib.registerContext({
   })
 ----- | REGISTERING BEER MENU TO 'OpenBeerMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenBeerMenu', function()
-    lib.showContext('beer_menu')
+    lib.showContext('hen_beer_menu')
 end)
 
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ exports['qb-target']:AddBoxZone("HenHouseDrinkMenu", vector3(-297.2, 6263.78, 31
 })
 ----- | CREATING MENU | -----
 lib.registerContext({
-  id = 'drink_menu',
+  id = 'hen_drink_menu',
   title = 'Drink Menu',
   options = {
     {
@@ -138,7 +138,7 @@ lib.registerContext({
 })
 ----- | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenDrinkMenu', function()
-  lib.showContext('drink_menu')
+  lib.showContext('hen_drink_menu')
 end)
 
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -163,7 +163,7 @@ exports['qb-target']:AddBoxZone("HenHouseCoffeeMenu", vector3(-295.31, 6262.62, 
 })
 ----- | CREATING MENU | -----
 lib.registerContext({
-  id = 'coffee_menu',
+  id = 'hen_coffee_menu',
   title = 'Coffee Menu',
   options = {
     {
@@ -177,5 +177,5 @@ lib.registerContext({
 })
 ----- | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenCoffeeMenu', function()
-  lib.showContext('coffee_menu')
+  lib.showContext('hen_coffee_menu')
 end)
