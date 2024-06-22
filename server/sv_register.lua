@@ -41,7 +41,7 @@ RegisterNetEvent("bd-henhousejob:server:billPlayer", function(playerId, amount)
                     icon = 'h',
                     iconColor = '#C4A484'
                   })
-		        exports['qb-management']:AddMoney('henhouse', amount)
+			exports['qb-banking']:AddMoney('henhouse', amount, 'Sale')			
                 else
                     lib.notify(source, {
                         id = 'hen_house',
