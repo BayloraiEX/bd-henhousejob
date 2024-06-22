@@ -1,4 +1,4 @@
-Hlocal QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['qb-core']:GetCoreObject()
 
 ----- | CREATING INVENTORYS | -----
 RegisterNetEvent('bd-henhousejob:server:frontTray1', function(frontTray1)
