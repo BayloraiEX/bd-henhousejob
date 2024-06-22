@@ -20,7 +20,7 @@ exports['qb-target']:AddBoxZone("HenHouseCookMenu", vector3(-297.58, 6271.04, 31
 })
 ----- | CREATING MENU | -----
 lib.registerContext({
-    id = 'cook_menu',
+    id = 'hen_cook_menu',
     title = 'Cook Menu',
     options = {
       {
@@ -125,5 +125,5 @@ lib.registerContext({
   })
 ----- | REGISTERING MENU TO 'OpenCookMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenCookMenu', function()
-    lib.showContext('cook_menu')
+    lib.showContext('hen_cook_menu')
   end)
