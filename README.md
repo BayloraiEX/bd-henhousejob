@@ -109,3 +109,5 @@ Config.Consumables = {
 
 Take all photos from images folder and put it into qb-inventory --> html --> images
 And you are all set :D
+
+SMOKEY HENHOUSE MLO: https://discord.gg/cdCDTYAP3E
