@@ -40,8 +40,8 @@ local function CreateLocalNPC(index)
 
     ------| CREATING PED |------
     local henhouseGaragePed = CreatePed(1, cfg.henhouseGaragePedModel, cfg.henhouseGaragePedLocation, false, true)
-        FreezeEntityPosition(henhouseBurgerGaragePed, true)
-        SetEntityInvincible(henhouseBurgerGaragePed, true)
+        FreezeEntityPosition(henhouseGaragePed, true)
+        SetEntityInvincible(henhouseGaragePed, true)
         SetBlockingOfNonTemporaryEvents(henhouseGaragePed, true)
         ----- | CREATING TARGET FOR PED | -----
         exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
