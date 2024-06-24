@@ -267,6 +267,294 @@ RegisterNetEvent('bd-henhousejob:server:makeSomethingBlue', function()
   })
 end)
 ----------------------------------------------------------------------------------------------------------------------
+----- | SHOT MENU | -----
+----- | MAKE WOOWOO SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeWooWooShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_woowoo_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_woowoo_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a WooWoo Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+----- | BLACK RUSSIAN SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeBlackRussianShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_blackrussian_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_blackrussian_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Black Russian Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | SILVER BULLET SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeSilverBulletShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_silverbullet_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_silverbullet_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Silver Bullet Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | VOODOO SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeVoodooShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_voodoo_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_voodoo_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Voodoo Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | B-52 SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeB52Shot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_b52_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_b52_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a B-52 Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | CRANBERRY COOKIE SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeCranberryCookieShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_cranberrycookie_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_cranberrycookie_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Cranberry Cookie Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | BLUE KAMIKAZE SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeBlueKamikazeShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_bluekamikaze_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_bluekamikaze_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Blue Kamikaze Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | MAD DOG SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeMadDogShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_maddog_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_maddog_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Mad Dog Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | KAMIKAZE SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeKamikazeShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_kamikaze_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_kamikaze_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Kamikaze Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | IRISH FLAG SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeIrishFlagShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_irishflag_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_irishflag_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Irish Flag Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | CAPPUCINOLINI SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeCappucinoliniShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_cappucinolini_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_cappucinolini_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Cappucinolini Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+
+----- | FREAK SHOT | -----
+RegisterNetEvent('bd-henhousejob:server:makeFreakShot', function()
+  local src = source
+  local Player = QBCore.Functions.GetPlayer(src)
+  exports['qb-inventory']:AddItem(src, 'hh_freak_shot', 1, false, false)
+  TriggerClientEvent('qb-inventory:client:ItemBox', source, QBCore.Shared.Items['hh_freak_shot'], 'add', 1)
+  lib.notify(source, {
+    id = 'hen_house',
+    title = 'Hen House',
+    description = 'You made a Freak Shot',
+    showDuration = false,
+    position = 'top-right',
+    style = {
+      backgroundColor = '#141517',
+      color = '#C4A484',
+      ['.description'] = {
+          color = '#909296'
+      }
+  },
+    icon = 'whiskey-glass',
+    iconColor = '#C4A484'
+  })
+end)
+----------------------------------------------------------------------------------------------------------------------
 ----- | COFFEE MENU | -----
 ----- | MAKE COFFEE | -----
 RegisterNetEvent('bd-henhousejob:server:makeCoffee', function()
