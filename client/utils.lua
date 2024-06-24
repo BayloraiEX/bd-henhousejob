@@ -124,3 +124,23 @@ exports['qb-target']:AddBoxZone("henhouseHutClock", vector3(-294.58, 6263.28, 30
 RegisterNetEvent('bd-henhousejob:client:ToggleDuty', function()
     TriggerServerEvent("QBCore:ToggleDuty")
 end)
+
+----- | SETTING THE CLOTHING MENU TARGET | -----
+exports['qb-target']:AddBoxZone("henhouseClothing", vector3(-298.91, 6269.78, 34.8), 0.9, 0.9, {
+	name = "henhouseClothing",
+	heading = 347.27,
+	debugPoly = false,
+	minZ = 34.8 - 2,
+	maxZ = 34.8 + 2,
+}, {
+	options = {
+		{
+            type = "client",
+            event = "qb-clothing:client:openMenu",
+			icon = "fa-solid fa-shirt",
+			label = "Change Rooms",
+			job = "henhouse",
+		},
+	},
+	distance = 2.5
+})
