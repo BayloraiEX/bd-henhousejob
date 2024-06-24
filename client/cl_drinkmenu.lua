@@ -134,13 +134,114 @@ lib.registerContext({
       iconColor = 'DodgerBlue',
       serverEvent = 'bd-henhousejob:server:makeSomethingBlue'
     },
+    {
+      title = 'SHOTS SHOTS SHOTS',
+      icon = 'whiskey-glass',
+      iconColor = 'White',
+      menu = 'hen_shots_menu',
+    },
   }
 })
 ----- | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenDrinkMenu', function()
   lib.showContext('hen_drink_menu')
 end)
-
+--------------------------------------------------------------------------------------------------------------------------------
+----- | CREATING MENU | -----
+lib.registerContext({
+  id = 'hen_shots_menu',
+  title = 'Shots Shots Shots',
+  options = {
+    {
+      title = 'Woo Woo Shot',
+      description = 'Peach Schnapps, Vodka & Cranberry Juice',
+      icon = 'whiskey-glass',
+      iconColor = 'Crimson',
+      serverEvent = 'bd-henhousejob:server:makeWooWooShot'
+    },
+    {
+      title = 'Black Russian Shot',
+      description = 'Vodka Mixed with Coffee Liqueur',
+      icon = 'whiskey-glass',
+      iconColor = 'SaddleBrown',
+      serverEvent = 'bd-henhousejob:server:makeBlackRussianShot'
+    },
+    {
+      title = 'Silver Bullet Shot',
+      description = 'Gin, Scotch whisky & Lemon Twist',
+      icon = 'whiskey-glass',
+      iconColor = 'Silver',
+      serverEvent = 'bd-henhousejob:server:makeSilverBulletShot'
+    },
+    {
+      title = 'Voodoo Shot',
+      description = 'Coffee Liqueur, Rum cream & Overproof(75%Rum)',
+      icon = 'whiskey-glass',
+      iconColor = 'SaddleBrown',
+      serverEvent = 'bd-henhousejob:server:makeVoodooShot'
+    },
+    {
+      title = 'B-52 Shot',
+      description = 'Coffee Liqueur, Irish cream & Orange Liqueur',
+      icon = 'whiskey-glass',
+      iconColor = 'SaddleBrown',
+      serverEvent = 'bd-henhousejob:server:makeB52Shot'
+    },
+    {
+      title = 'Cranberry Cookie Shot',
+      description = 'Cranberry Juice Mixed with Disaronno',
+      icon = 'whiskey-glass',
+      iconColor = 'Red',
+      serverEvent = 'bd-henhousejob:server:makeCranberryCookieShot'
+    },
+    {
+      title = 'Blue Kamikaze Shot',
+      description = 'Vodka, Blue Curacao & Lime Juice',
+      icon = 'whiskey-glass',
+      iconColor = 'Blue',
+      serverEvent = 'bd-henhousejob:server:makeBlueKamikazeShot'
+    },
+    {
+      title = 'Mad Dog Shot',
+      description = 'Rasperry Syrup, Vodka & A dash of Tabasko',
+      icon = 'whiskey-glass',
+      iconColor = 'Red',
+      serverEvent = 'bd-henhousejob:server:makeMadDogShot'
+    },
+    {
+      title = 'Kamikaze Shot',
+      description = 'Vodka, Orange Liqueur & A dash of Lime Juice',
+      icon = 'whiskey-glass',
+      iconColor = 'GhostWhite',
+      serverEvent = 'bd-henhousejob:server:makeKamikazeShot'
+    },
+    {
+      title = 'Irish Flag Shot',
+      description = 'Green Mint Cream, Irish Cream Liqueur & Orange Liqueur',
+      icon = 'whiskey-glass',
+      iconColor = 'Green',
+      serverEvent = 'bd-henhousejob:server:makeIrishFlagShot'
+    },
+    {
+      title = 'Cappucinolini Shot',
+      description = 'Double Espresso, Vanilla & Chocolate Liquerur',
+      icon = 'whiskey-glass',
+      iconColor = 'SaddleBrown',
+      serverEvent = 'bd-henhousejob:server:makeCappucinoliniShot'
+    },
+    {
+      title = 'Freak Shot',
+      description = 'Mint Liqueur Mixed with Cucumber Vodka',
+      icon = 'whiskey-glass',
+      iconColor = 'Aquamarine',
+      serverEvent = 'bd-henhousejob:server:makeFreakShot'
+    },
+  }
+})
+----- | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
+RegisterNetEvent('bd-henhousejob:client:OpenShotsMenu', function()
+  lib.showContext('hen_shots_menu')
+end)
 ---------------------------------------------------------------------------------------------------------------------------------
 ----- | CREATING COFFEE MENU LOCATION | -----
 exports['qb-target']:AddBoxZone("HenHouseCoffeeMenu", vector3(-295.31, 6262.62, 31.56), 0.9, 0.9, {
