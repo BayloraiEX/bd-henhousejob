@@ -144,3 +144,23 @@ exports['qb-target']:AddBoxZone("henhouseClothing", vector3(-298.91, 6269.78, 34
 	},
 	distance = 2.5
 })
+
+----- | SETTING THE BOSS MENU TARGET | -----
+exports['qb-target']:AddBoxZone("henhouseBossMenu", vector3(-294.63, 6266.69, 34.84), 0.9, 0.9, {
+	name = "henhouseBossMenu",
+	heading = 347.27,
+	debugPoly = false,
+	minZ = 34.84 - 2,
+	maxZ = 34.84 + 2,
+}, {
+	options = {
+		{
+            type = "client",
+            event = "qb-bossmenu:client:OpenMenu",
+			icon = "fa-solid fa-right-to-bracket",
+			label = "Boss Menu",
+			job = {["henhouse"] = 4},
+		},
+	},
+	distance = 2.5
+})
