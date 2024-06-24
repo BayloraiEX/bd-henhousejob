@@ -4,10 +4,10 @@
   <residentAnims />
   <InitDatas>
     <Item>
-      <modelName>nspeedo</modelName>
-      <txdName>nspeedo</txdName>
-      <handlingId>nspeedo</handlingId>
-      <gameName>nspeedo</gameName>
+      <modelName>henhousevan</modelName>
+      <txdName>henhousevan</txdName>
+      <handlingId>henhousevan</handlingId>
+      <gameName>henhousevan</gameName>
       <vehicleMakeName />
       <expressionDictName>null</expressionDictName>
       <expressionName>null</expressionName>
@@ -134,7 +134,7 @@
   <txdRelationships>
     <Item>
       <parent>vehicles_speedo_interior</parent>
-      <child>nspeedo</child>
+      <child>henhousevan</child>
     </Item>
   </txdRelationships>
 </CVehicleModelInfo__InitDataList>

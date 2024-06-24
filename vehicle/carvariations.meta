@@ -3,7 +3,7 @@
 <CVehicleModelInfoVariation>
   <variationData>
     <Item>
-      <modelName>nspeedo</modelName>
+      <modelName>henhousevan</modelName>
       <colors>
         <Item>
           <indices content="char_array">
@@ -371,7 +371,7 @@
         </Item>
       </colors>
       <kits>
-        <Item>800_nspeedo_modkit</Item>
+        <Item>800_henhousevan_modkit</Item>
       </kits>
       <windowsWithExposedEdges/>
       <plateProbabilities>
