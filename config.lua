@@ -22,7 +22,7 @@ Config.henhouseGaragePed = {
 
 ----- | VEHICLE STUFF | -----
 Config.VehicleSpawn = vector4(-294.29, 6272.93, 31.49, 220.51)
-Config.Vehicle = 'nspeedo' -- Custom Vehicle That Comes With Script
+Config.Vehicle = 'henhousevan' -- Custom Vehicle That Comes With Script
 
 ----- | SHOP ITEMS | -----
 Config.Items = {
