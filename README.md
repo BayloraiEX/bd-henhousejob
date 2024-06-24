@@ -116,6 +116,18 @@ Config.Consumables = {
         ['hh_pomegranate_martini'] = math.random(30, 40),
         ['hh_pumpkin_beer'] = math.random(30, 40),
         ['hh_something_blue'] = math.random(20, 40),
+        ['hh_b52_shot'] = math.random(5, 20),
+        ['hh_blackrussian_shot'] = math.random(5, 20),
+        ['hh_bluekamikaze'] = math.random(5, 20),
+        ['hh_cappucinolini_shot'] = math.random(5, 20),
+        ['hh_cranberrycookie_shot'] = math.random(5, 20),
+        ['hh_freak_shot'] = math.random(5, 20),
+        ['hh_irishflag_shot'] = math.random(5, 20),
+        ['hh_kamikaze_shot'] = math.random(5, 20),
+        ['hh_maddog_shot'] = math.random(5, 20),
+        ['hh_silverbullet_shot'] = math.random(5, 20),
+        ['hh_voodoo_shot'] = math.random(5, 20),
+        ['hh_woowoo_shot'] = math.random(5, 20),
     },
 }
 ```
