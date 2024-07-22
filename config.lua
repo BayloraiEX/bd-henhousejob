@@ -11,6 +11,7 @@
                               |_|                             
 --]]
 Config = {}
+Config.InventorySystem = 'qb' -- Supports 'qb' & 'ox'
 ----- | PED STUFF | -----
 Config.henhouseGaragePed = {
     {
