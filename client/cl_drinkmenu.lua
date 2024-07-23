@@ -1,13 +1,69 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
------ | CREATING BEER MENU LOCATION | -----
-exports['qb-target']:AddBoxZone("HenHouseBeerMenu", vector3(-293.76, 6264.28, 31.56), 0.9, 0.9, {
+if Config.InventorySystem == 'ox' then
+  ----- | CREATING BEER MENU LOCATION | -----
+  exports.ox_target:addBoxZone({
+    coords = vector4(-293.98, 6264.24, 31.53, 42.01),
+    size = vec3(1, 1, 1),
+    rotation = 45,
+    debug = drawZones,
+    options = {
+      {
+        name = 'HenHouseBeerMenu',
+        event = 'bd-henhousejob:client:OpenBeerMenu',
+        icon = 'fa-solid fa-beer-mug-empty',
+        label = 'Beer Fridge',
+        groups = {
+          henhouse = 0
+        },
+      },
+    }
+  })
+  ----- | CREATING DRINK MENU LOCATION | -----
+  exports.ox_target:addBoxZone({
+    coords = vector4(-297.17, 6263.73, 31.53, 217.61),
+    size = vec3(1, 1, 1),
+    rotation = 45,
+    debug = drawZones,
+    options = {
+      {
+        name = 'HenHouseDrinkMenu',
+        event = 'bd-henhousejob:client:OpenDrinkMenu',
+        icon = 'fa-solid fa-martini-glass',
+        label = 'Drink Menu',
+        groups = {
+          henhouse = 0
+        },
+      },
+    }
+  })
+  ----- | CREATING COFFEE MENU LOCATION | -----
+  exports.ox_target:addBoxZone({
+    coords = vector4(-295.24, 6262.73, 31.53, 33.67),
+    size = vec3(1, 1, 1),
+    rotation = 45,
+    debug = drawZones,
+    options = {
+      {
+        name = 'HenHouseCoffeeMenu',
+        event = 'bd-henhousejob:client:OpenCoffeeMenu',
+        icon = 'fa-solid fa-mug-saucer',
+        label = 'Coffee Machine',
+        groups = {
+          henhouse = 0
+        },
+      },
+    }
+  })
+elseif Config.InventorySystem == 'qb' then
+  ----- | CREATING BEER MENU LOCATION | -----
+  exports['qb-target']:AddBoxZone("HenHouseBeerMenu", vector3(-293.76, 6264.28, 31.56), 0.9, 0.9, {
     name = "HenHouseBeerMenu",
     heading = 46.94,
     debugPoly = false,
     minZ = 31.56 - 2,
     maxZ = 31.56 + 2,
-}, {
+  }, {
     options = {
         {
             type = "client",
@@ -18,8 +74,47 @@ exports['qb-target']:AddBoxZone("HenHouseBeerMenu", vector3(-293.76, 6264.28, 31
         },
     },
     distance = 2.5
-})
------ | CREATING MENU | -----
+  })
+  ----- | CREATING DRINK MENU LOCATION | -----
+  exports['qb-target']:AddBoxZone("HenHouseDrinkMenu", vector3(-297.2, 6263.78, 31.56), 0.9, 0.9, {
+    name = "HenHouseDrinkMenu",
+    heading = 46.94,
+    debugPoly = false,
+    minZ = 31.56 - 2,
+    maxZ = 31.56 + 2,
+  }, {
+    options = {
+        {
+            type = "client",
+            event = "bd-henhousejob:client:OpenDrinkMenu",
+            icon = "fa-solid fa-martini-glass",
+            label = "Drink Menu",
+            job = "henhouse",
+        },
+    },
+    distance = 2.5
+  })
+  ----- | CREATING COFFEE MENU LOCATION | -----
+  exports['qb-target']:AddBoxZone("HenHouseCoffeeMenu", vector3(-295.31, 6262.62, 31.56), 0.9, 0.9, {
+    name = "HenHouseCoffeeMenu",
+    heading = 46.94,
+    debugPoly = false,
+    minZ = 31.56 - 2,
+    maxZ = 31.56 + 2,
+  }, {
+    options = {
+        {
+            type = "client",
+            event = "bd-henhousejob:client:OpenCoffeeMenu",
+            icon = "fa-solid fa-mug-saucer",
+            label = "Coffee Machine",
+            job = "henhouse",
+        },
+    },
+    distance = 2.5
+  })
+end
+
 lib.registerContext({
     id = 'hen_beer_menu',
     title = 'Beer Fridge',
@@ -29,79 +124,56 @@ lib.registerContext({
         description = 'Grab a AM',
         icon = 'beer-mug-empty',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makeAMBeer'
+        event = 'bd-henhousejob:client:makeAMBeer'
       },
       {
         title = 'Piss Wasser Light',
         description = 'Grab a Piss Wasser Light',
         icon = 'beer-mug-empty',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makePissWasserLight'
+        event = 'bd-henhousejob:client:makePissWasserLight'
       },
       {
         title = 'Piss Wasser',
         description = 'Grab a Piss Wasser',
         icon = 'beer-mug-empty',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makePissWasser'
+        event = 'bd-henhousejob:client:makePissWasser'
       },
       {
         title = 'Dusche',
         description = 'Grab a Dusche',
         icon = 'beer-mug-empty',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makeDusche'
+        event = 'bd-henhousejob:client:makeDusche'
       },
       {
         title = 'Logger',
         description = 'Grab a Logger',
         icon = 'beer-mug-empty',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makeLogger'
+        event = 'bd-henhousejob:client:makeLogger'
       },
       {
         title = 'Water',
         description = 'Grab a Water Bottle',
         icon = 'bottle-water',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makeWater'
+        event = 'bd-henhousejob:client:makeWater'
       },
       {
         title = 'Ecola',
         description = 'Grab a Ecola',
         icon = 'bottle-water',
         iconColor = 'Tan',
-        serverEvent = 'bd-henhousejob:server:makeEcola'
+        event = 'bd-henhousejob:client:makeEcola'
       },
     }
   })
------ | REGISTERING BEER MENU TO 'OpenBeerMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenBeerMenu', function()
     lib.showContext('hen_beer_menu')
 end)
 
-----------------------------------------------------------------------------------------------------------------------------------------
-
------ | CREATING DRINK MENU LOCATION | -----
-exports['qb-target']:AddBoxZone("HenHouseDrinkMenu", vector3(-297.2, 6263.78, 31.56), 0.9, 0.9, {
-  name = "HenHouseDrinkMenu",
-  heading = 46.94,
-  debugPoly = false,
-  minZ = 31.56 - 2,
-  maxZ = 31.56 + 2,
-}, {
-  options = {
-      {
-          type = "client",
-          event = "bd-henhousejob:client:OpenDrinkMenu",
-          icon = "fa-solid fa-martini-glass",
-          label = "Drink Menu",
-          job = "henhouse",
-      },
-  },
-  distance = 2.5
-})
------ | CREATING MENU | -----
 lib.registerContext({
   id = 'hen_drink_menu',
   title = 'Drink Menu',
@@ -111,28 +183,28 @@ lib.registerContext({
       description = 'Make a Peach Bellini',
       icon = 'wine-glass',
       iconColor = 'Gold',
-      serverEvent = 'bd-henhousejob:server:makePeachBellini'
+      event = 'bd-henhousejob:client:makePeachBellini'
     },
     {
       title = 'Pomegranate Martini',
       description = 'Make a Pomegranate Martini',
       icon = 'martini-glass',
       iconColor = 'IndianRed',
-      serverEvent = 'bd-henhousejob:server:makePomegranateMartini'
+      event = 'bd-henhousejob:client:makePomegranateMartini'
     },
     {
       title = 'Pumpkin Beer',
       description = 'Pour some fresh Pumpkin Beer',
       icon = 'beer-mug-empty',
       iconColor = 'Peru',
-      serverEvent = 'bd-henhousejob:server:makePumpkinBeer'
+      event = 'bd-henhousejob:client:makePumpkinBeer'
     },
     {
       title = 'Something Blue',
       description = 'Make a Something Blue',
       icon = 'martini-glass',
       iconColor = 'DodgerBlue',
-      serverEvent = 'bd-henhousejob:server:makeSomethingBlue'
+      event = 'bd-henhousejob:client:makeSomethingBlue'
     },
     {
       title = 'SHOTS SHOTS SHOTS',
@@ -142,12 +214,10 @@ lib.registerContext({
     },
   }
 })
------ | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenDrinkMenu', function()
   lib.showContext('hen_drink_menu')
 end)
---------------------------------------------------------------------------------------------------------------------------------
------ | CREATING MENU | -----
+
 lib.registerContext({
   id = 'hen_shots_menu',
   title = 'Shots Shots Shots',
@@ -157,112 +227,91 @@ lib.registerContext({
       description = 'Peach Schnapps, Vodka & Cranberry Juice',
       icon = 'whiskey-glass',
       iconColor = 'Crimson',
-      serverEvent = 'bd-henhousejob:server:makeWooWooShot'
+      event = 'bd-henhousejob:client:makeWooWooShot'
     },
     {
       title = 'Black Russian Shot',
       description = 'Vodka Mixed with Coffee Liqueur',
       icon = 'whiskey-glass',
       iconColor = 'SaddleBrown',
-      serverEvent = 'bd-henhousejob:server:makeBlackRussianShot'
+      event = 'bd-henhousejob:client:makeBlackRussianShot'
     },
     {
       title = 'Silver Bullet Shot',
       description = 'Gin, Scotch whisky & Lemon Twist',
       icon = 'whiskey-glass',
       iconColor = 'Silver',
-      serverEvent = 'bd-henhousejob:server:makeSilverBulletShot'
+      event = 'bd-henhousejob:client:makeSilverBulletShot'
     },
     {
       title = 'Voodoo Shot',
       description = 'Coffee Liqueur, Rum cream & Overproof(75%Rum)',
       icon = 'whiskey-glass',
       iconColor = 'SaddleBrown',
-      serverEvent = 'bd-henhousejob:server:makeVoodooShot'
+      event = 'bd-henhousejob:client:makeVoodooShot'
     },
     {
       title = 'B-52 Shot',
       description = 'Coffee Liqueur, Irish cream & Orange Liqueur',
       icon = 'whiskey-glass',
       iconColor = 'SaddleBrown',
-      serverEvent = 'bd-henhousejob:server:makeB52Shot'
+      event = 'bd-henhousejob:client:makeB52Shot'
     },
     {
       title = 'Cranberry Cookie Shot',
       description = 'Cranberry Juice Mixed with Disaronno',
       icon = 'whiskey-glass',
       iconColor = 'Red',
-      serverEvent = 'bd-henhousejob:server:makeCranberryCookieShot'
+      event = 'bd-henhousejob:client:makeCranberryCookieShot'
     },
     {
       title = 'Blue Kamikaze Shot',
       description = 'Vodka, Blue Curacao & Lime Juice',
       icon = 'whiskey-glass',
       iconColor = 'Blue',
-      serverEvent = 'bd-henhousejob:server:makeBlueKamikazeShot'
+      event = 'bd-henhousejob:client:makeBlueKamikazeShot'
     },
     {
       title = 'Mad Dog Shot',
       description = 'Rasperry Syrup, Vodka & A dash of Tabasko',
       icon = 'whiskey-glass',
       iconColor = 'Red',
-      serverEvent = 'bd-henhousejob:server:makeMadDogShot'
+      event = 'bd-henhousejob:client:makeMadDogShot'
     },
     {
       title = 'Kamikaze Shot',
       description = 'Vodka, Orange Liqueur & A dash of Lime Juice',
       icon = 'whiskey-glass',
       iconColor = 'GhostWhite',
-      serverEvent = 'bd-henhousejob:server:makeKamikazeShot'
+      event = 'bd-henhousejob:client:makeKamikazeShot'
     },
     {
       title = 'Irish Flag Shot',
       description = 'Green Mint Cream, Irish Cream Liqueur & Orange Liqueur',
       icon = 'whiskey-glass',
       iconColor = 'Green',
-      serverEvent = 'bd-henhousejob:server:makeIrishFlagShot'
+      event = 'bd-henhousejob:client:makeIrishFlagShot'
     },
     {
       title = 'Cappucinolini Shot',
       description = 'Double Espresso, Vanilla & Chocolate Liquerur',
       icon = 'whiskey-glass',
       iconColor = 'SaddleBrown',
-      serverEvent = 'bd-henhousejob:server:makeCappucinoliniShot'
+      event = 'bd-henhousejob:client:makeCappucinoliniShot'
     },
     {
       title = 'Freak Shot',
       description = 'Mint Liqueur Mixed with Cucumber Vodka',
       icon = 'whiskey-glass',
       iconColor = 'Aquamarine',
-      serverEvent = 'bd-henhousejob:server:makeFreakShot'
+      event = 'bd-henhousejob:client:makeFreakShot'
     },
   }
 })
------ | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenShotsMenu', function()
   lib.showContext('hen_shots_menu')
 end)
----------------------------------------------------------------------------------------------------------------------------------
------ | CREATING COFFEE MENU LOCATION | -----
-exports['qb-target']:AddBoxZone("HenHouseCoffeeMenu", vector3(-295.31, 6262.62, 31.56), 0.9, 0.9, {
-  name = "HenHouseCoffeeMenu",
-  heading = 46.94,
-  debugPoly = false,
-  minZ = 31.56 - 2,
-  maxZ = 31.56 + 2,
-}, {
-  options = {
-      {
-          type = "client",
-          event = "bd-henhousejob:client:OpenCoffeeMenu",
-          icon = "fa-solid fa-mug-saucer",
-          label = "Coffee Machine",
-          job = "henhouse",
-      },
-  },
-  distance = 2.5
-})
------ | CREATING MENU | -----
+
 lib.registerContext({
   id = 'hen_coffee_menu',
   title = 'Coffee Menu',
@@ -272,11 +321,515 @@ lib.registerContext({
       description = 'You need 1x Coffee Beans',
       icon = 'mug-hot',
       iconColor = 'Sienna',
-      serverEvent = 'bd-henhousejob:server:makeCoffee'
+      event = 'bd-henhousejob:client:makeCoffee'
     },
   }
 })
------ | REGISTERING DRINK MENU TO 'OpenDrinkMenu' | -----
 RegisterNetEvent('bd-henhousejob:client:OpenCoffeeMenu', function()
   lib.showContext('hen_coffee_menu')
+end)
+
+RegisterNetEvent('bd-henhousejob:client:makeAMBeer', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeAMBeer')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makePissWasserLight', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makePissWasserLight')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makePissWasser', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makePissWasser')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeDusche', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeDusche')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeLogger', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeLogger')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeWater', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeWater')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeEcola', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeEcola')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makePeachBellini', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makePeachBellini')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makePomegranateMartini', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makePomegranateMartini')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makePumpkinBeer', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makePumpkinBeer')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeSomethingBlue', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeSomethingBlue')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeWooWooShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeWooWooShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeBlackRussianShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeBlackRussianShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeSilverBulletShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeSilverBulletShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeVoodooShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeVoodooShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeB52Shot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeB52Shot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeCranberryCookieShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeCranberryCookieShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeBlueKamikazeShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeBlueKamikazeShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeMadDogShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeMadDogShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeKamikazeShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeKamikazeShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeIrishFlagShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeIrishFlagShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeCappucinoliniShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeCappucinoliniShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeFreakShot', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeFreakShot')
+  else
+  end
+end)
+RegisterNetEvent('bd-henhousejob:client:makeCoffee', function()
+  if lib.progressCircle({
+    duration = 750,
+    position = 'bottom',
+    useWhileDead = false,
+    canCancel = true,
+    disable = {
+      move = true,
+      car = true,
+      combat = true,
+    },
+    anim = {
+      dict = 'mini@repair',
+      clip = 'fixing_a_player',
+      scenario = 'mini@repair',
+    },
+  }) then
+    TriggerServerEvent('bd-henhousejob:server:makeCoffee')
+  else
+  end
 end)
