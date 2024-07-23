@@ -43,8 +43,31 @@ local function CreateLocalNPC(index)
         FreezeEntityPosition(henhouseGaragePed, true)
         SetEntityInvincible(henhouseGaragePed, true)
         SetBlockingOfNonTemporaryEvents(henhouseGaragePed, true)
-        ----- | CREATING TARGET FOR PED | -----
-        exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
+	if Config.InventorySystem == 'ox' then
+		----- | CREATING TARGET FOR PED | -----
+		exports.ox_target:addLocalEntity(henhouseGaragePed, {
+                {
+                    name = 'henhouse_jobgarage',
+                    event = 'bd-henhousejob:client:jobGarage',
+                    icon = 'fa-solid fa-warehouse',
+                    label = 'Garage',
+                    groups = {
+                        henhouse = 0
+                    },
+                },
+                {
+                    name = 'henhouse_storegarage',
+                    event = 'bd-henhousejob:client:storeGarage',
+                    icon = 'fa-solid fa-square-parking',
+                    label = 'Store Vehicles',
+                    groups = {
+                        henhouse = 0
+                    },
+                },
+            })
+	elseif Config.InventorySystem == 'qb' then
+		----- | CREATING TARGET FOR PED | -----
+		exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
             options = {
             { 
                 type = "client",
@@ -63,6 +86,7 @@ local function CreateLocalNPC(index)
             }, 
             distance = 1.5, 
         })
+	end
     LocalNPCs[index].henhouseGaragePed = henhouseGaragePed
 end
 
