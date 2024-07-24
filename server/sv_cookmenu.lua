@@ -937,7 +937,7 @@ elseif Config.InventorySystem == 'qb' then
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     if not Player then return end
-    if not exports['qb-inventory']:RemoveItem(src, 'hh_raw_ribye', 2, false) then
+    if not exports['qb-inventory']:RemoveItem(src, 'hh_raw_ribeye', 2, false) then
       lib.notify(source, {
         id = 'hen_house',
         title = 'Hen House',
