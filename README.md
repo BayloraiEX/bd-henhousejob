@@ -105,6 +105,10 @@ Config.Consumables = {
         ['hh_sloppy_joe'] = math.random(50, 70),
         ['hh_wings'] = math.random(50, 70),
     },
+    drink = {
+         -- HEN HOUSE ITEMS
+         ['hh_coffee'] = math.random(40, 75),
+    },
     alcohol = {
         --HEN HOUSE DRINKS
         ['hh_ambeer'] = math.random(30, 40),
