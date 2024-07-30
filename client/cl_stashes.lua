@@ -101,7 +101,7 @@ elseif Config.TargetSystem == 'qb' then
 		options = {
 			{
 				type = "client",
-				event = "bd-henhousejob:client:frontTray1",
+				event = "bd-henhousejob:client:henhouseTray1",
 				icon = "fa-solid fa-equals",
 				label = "Counter",
 			},
@@ -119,7 +119,7 @@ elseif Config.TargetSystem == 'qb' then
 		options = {
 			{
 				type = "client",
-				event = "bd-henhousejob:client:frontTray2",
+				event = "bd-henhousejob:client:henhouseTray2",
 				icon = "fa-solid fa-equals",
 				label = "Counter",
 			},
@@ -137,7 +137,7 @@ elseif Config.TargetSystem == 'qb' then
 		options = {
 			{
 				type = "client",
-				event = "bd-henhousejob:client:jobFridge",
+				event = "bd-henhousejob:client:henhouseFridge",
 				icon = "fa-solid fa-temperature-empty",
 				label = "Fridge",
 				job = "henhouse",
@@ -159,7 +159,7 @@ elseif Config.TargetSystem == 'qb' then
 		options = {
 			{
 				type = "client",
-				event = "bd-henhousejob:client:jobHeater",
+				event = "bd-henhousejob:client:henhouseHeater",
 				icon = "fa-solid fa-temperature-arrow-up",
 				label = "Heater",
 				job = "henhouse",
@@ -271,7 +271,7 @@ elseif Config.InventorySystem == 'qs' then
 		})
 	end)
 	-- SHOP --
-	RegisterNetEvent("bd-henhousejob:client:ingredientStore", function()
+	RegisterNetEvent("bd-henhousejob:client:ingredientShop", function()
 		TriggerServerEvent("inventory:server:OpenInventory", "shop", "henhouse", Config.Items)
 	end)
 end
