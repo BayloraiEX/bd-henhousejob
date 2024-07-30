@@ -43,7 +43,7 @@ local function CreateLocalNPC(index)
         FreezeEntityPosition(henhouseGaragePed, true)
         SetEntityInvincible(henhouseGaragePed, true)
         SetBlockingOfNonTemporaryEvents(henhouseGaragePed, true)
-        if Config.InventorySystem == 'ox' then
+        if Config.TargetSystem == 'ox' then
             ----- | CREATING TARGET FOR PED | -----
             exports.ox_target:addLocalEntity(henhouseGaragePed, {
                 {
@@ -65,7 +65,7 @@ local function CreateLocalNPC(index)
                     },
                 },
         })
-        elseif Config.InventorySystem == 'qb' then
+        elseif Config.TargetSystem == 'qb' then
             ----- | CREATING TARGET FOR PED | -----
             exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
                 options = {
