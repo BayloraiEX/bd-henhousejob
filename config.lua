@@ -11,13 +11,13 @@
                               |_|                             
 --]]
 Config = {}
-Config.TargetSystem = 'qb' -- Supports 'qb' & 'ox'
-Config.InventorySystem = 'qb' -- Supports 'qb' & 'ox' & 'qs'
+Config.TargetSystem = 'ox' -- Supports 'qb' & 'ox'
+Config.InventorySystem = 'ox' -- Supports 'qb' & 'ox' & 'qs'
 ----- | PED STUFF | -----
 Config.henhouseGaragePed = {
     {
         henhouseGaragePedModel = 'mp_m_waremech_01',
-        henhouseGaragePedLocation = vec4(-299.71, 6274.93, 31.49, 312.11),
+        henhouseGaragePedLocation = vec4(-299.71, 6274.93, 30.49, 312.11),
         henhouseGarageRenderDistance = 20,
     }
 }

@@ -2,7 +2,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local ox_inventory = exports.ox_inventory
 PlayerJob = {}
 
-if Config.InventorySystem == 'ox' then
+if Config.TargetSystem == 'ox' then
 	-- TRAY 1 --
 	exports.ox_target:addBoxZone({
 		coords = vector4(-297.88, 6261.15, 31.31, 132.43),
@@ -18,12 +18,6 @@ if Config.InventorySystem == 'ox' then
 			},
 		}
 	})
-	RegisterNetEvent('bd-henhousejob:client:henhouseTray1', function()
-		if ox_inventory:openInventory('stash', 'henhouseTray1') == false then
-			TriggerServerEvent('ox:henhouseTray1')
-			ox_inventory:openInventory('stash', 'henhouseTray1')
-		end
-	end)
 	-- TRAY 2 --
 	exports.ox_target:addBoxZone({
 		coords = vector4(-298.11, 6263.13, 31.21, 65.5),
@@ -39,12 +33,6 @@ if Config.InventorySystem == 'ox' then
 			},
 		}
 	})
-	RegisterNetEvent("bd-henhousejob:client:henhouseTray2", function()
-		if ox_inventory:openInventory('stash', 'henhouseTray2') == false then
-			TriggerServerEvent('ox:henhouseTray2')
-			ox_inventory:openInventory('stash', 'henhouseTray2')
-		end
-	end)
 	-- HEATER --
 	exports.ox_target:addBoxZone({
 		coords = vector4(-298.65, 6269.93, 31.54, 16.55),
@@ -63,13 +51,7 @@ if Config.InventorySystem == 'ox' then
 			},
 		}
 	})
-	RegisterNetEvent("bd-henhousejob:client:henhouseHeater", function()
-		if ox_inventory:openInventory('stash', 'henhouseHeater') == false then
-			TriggerServerEvent('ox:henhouseHeater')
-			ox_inventory:openInventory('stash', 'henhouseHeater')
-		end
-	end)
-	-- FRIDGE -- 
+	-- FRIDGE --
 	exports.ox_target:addBoxZone({
 		coords = vector4(-300.1, 6273.81, 31.48, 219.0),
 		size = vec3(1, 1, 1),
@@ -87,12 +69,6 @@ if Config.InventorySystem == 'ox' then
 			},
 		}
 	})
-	RegisterNetEvent("bd-henhousejob:client:henhouseFridge", function()
-		if ox_inventory:openInventory('stash', 'henhouseFridge') == false then
-			TriggerServerEvent('ox:henhouseFridge')
-			ox_inventory:openInventory('stash', 'henhouseFridge')
-		end
-	end)
 	-- SHOP --
 	exports.ox_target:addBoxZone({
 		coords = vector4(-301.62, 6272.44, 31.5, 315.61),
@@ -105,7 +81,7 @@ if Config.InventorySystem == 'ox' then
 				icon = 'fa-solid fa-shopping-basket',
 				label = 'Ingredient Shop',
 				groups = {
-					henhouse = 1
+					henhouse = 0
 				},
 				onSelect = function ()
 					exports.ox_inventory:openInventory('shop', {type = 'hhshop'})
@@ -113,8 +89,8 @@ if Config.InventorySystem == 'ox' then
 			},
 		}
 	})
-elseif Config.InventorySystem == 'qb' then
-	-- TRAY 1 -
+elseif Config.TargetSystem == 'qb' then
+	-- TRAY 1 --
 	exports['qb-target']:AddBoxZone("HenHouseFrontTray1", vector3(-297.21, 6260.84, 31.58), 0.9, 0.9, {
 		name = "HenHouseFrontTray1",
 		heading = 347.27,
@@ -132,9 +108,6 @@ elseif Config.InventorySystem == 'qb' then
 		},
 		distance = 2.5
 	})
-	RegisterNetEvent("bd-henhousejob:client:frontTray1", function()
-		TriggerServerEvent('bd-henhousejob:server:frontTray1')
-	end)
 	-- TRAY 2 --
 	exports['qb-target']:AddBoxZone("HenHouseFrontTray2", vector3(-298.26, 6262.88, 31.58), 0.9, 0.9, {
 		name = "HenHouseFrontTray2",
@@ -153,9 +126,6 @@ elseif Config.InventorySystem == 'qb' then
 		},
 		distance = 2.5
 	})
-	RegisterNetEvent("bd-henhousejob:client:frontTray2", function()
-		TriggerServerEvent('bd-henhousejob:server:frontTray2')
-	end)
 	-- FRIDGE --
 	exports['qb-target']:AddBoxZone("HenHouseJobFridge", vector3(-300.07, 6273.8, 31.58), 0.9, 0.9, {
 		name = "HenHouseJobFridge",
@@ -197,9 +167,6 @@ elseif Config.InventorySystem == 'qb' then
 		},
 		distance = 2.5
 	})
-	RegisterNetEvent("bd-henhousejob:client:jobHeater", function()
-		TriggerServerEvent('bd-henhousejob:server:jobHeater')
-	end)
 	-- SHOP --
 	exports['qb-target']:AddBoxZone("HenHouseShop", vector3(-301.79, 6272.79, 31.58), 0.9, 0.9, {
 		name = "HenHouseShop",
@@ -219,7 +186,92 @@ elseif Config.InventorySystem == 'qb' then
 		},
 		distance = 2.5
 	})
+end
+if Config.InventorySystem == 'ox' then
+	-- TRAY 1 --
+	RegisterNetEvent('bd-henhousejob:client:henhouseTray1', function()
+		if ox_inventory:openInventory('stash', 'henhouseTray1') == false then
+			TriggerServerEvent('ox:henhouseTray1')
+			ox_inventory:openInventory('stash', 'henhouseTray1')
+		end
+	end)
+	-- TRAY 2 --
+	RegisterNetEvent("bd-henhousejob:client:henhouseTray2", function()
+		if ox_inventory:openInventory('stash', 'henhouseTray2') == false then
+			TriggerServerEvent('ox:henhouseTray2')
+			ox_inventory:openInventory('stash', 'henhouseTray2')
+		end
+	end)
+	-- HEATER --
+	RegisterNetEvent("bd-henhousejob:client:henhouseHeater", function()
+		if ox_inventory:openInventory('stash', 'henhouseHeater') == false then
+			TriggerServerEvent('ox:henhouseHeater')
+			ox_inventory:openInventory('stash', 'henhouseHeater')
+		end
+	end)
+	-- FRIDGE -- 
+	RegisterNetEvent("bd-henhousejob:client:henhouseFridge", function()
+		if ox_inventory:openInventory('stash', 'henhouseFridge') == false then
+			TriggerServerEvent('ox:henhouseFridge')
+			ox_inventory:openInventory('stash', 'henhouseFridge')
+		end
+	end)
+elseif Config.InventorySystem == 'qb' then
+	-- TRAY 1 -
+	RegisterNetEvent("bd-henhousejob:client:henhouseTray1", function()
+		TriggerServerEvent('bd-henhousejob:server:frontTray1')
+	end)
+	-- TRAY 2 --
+	RegisterNetEvent("bd-henhousejob:client:henhouseTray2", function()
+		TriggerServerEvent('bd-henhousejob:server:frontTray2')
+	end)
+	-- FRIDGE --
+	RegisterNetEvent("bd-henhousejob:client:henhouseFridge", function()
+		TriggerServerEvent('bd-henhousejob:server:jobFridge')
+	end)
+	-- HEATER --
+	RegisterNetEvent("bd-henhousejob:client:henhouseHeater", function()
+		TriggerServerEvent('bd-henhousejob:server:jobHeater')
+	end)
+	-- SHOP --
 	RegisterNetEvent("bd-henhousejob:client:ingredientShop", function()
 		TriggerServerEvent('bd-henhousejob:server:ingredientShop')
+	end)
+elseif Config.InventorySystem == 'qs' then
+	-- TRAY 1 --
+	RegisterNetEvent("bd-henhousejob:client:henhouseTray1", function()
+		TriggerEvent("inventory:client:SetCurrentStash", "henhousetray1")
+		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousetray1", {
+			maxweight = 10000,
+			slots = 5,
+		})
+	end)
+	-- TRAY 2 --
+	RegisterNetEvent("bd-henhousejob:client:henhouseTray2", function()
+		TriggerEvent("inventory:client:SetCurrentStash", "henhousetray2")
+		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousetray2", {
+			maxweight = 10000,
+			slots = 5,
+		})
+	end)
+	-- FRIDGE --
+	RegisterNetEvent("bd-henhousejob:client:henhouseFridge", function()
+		TriggerEvent("inventory:client:SetCurrentStash", "henhousefridge")
+		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousefridge", {
+			maxweight = 500000,
+			slots = 50,
+		})
+	end)
+	-- HEATER --
+	RegisterNetEvent("bd-henhousejob:client:henhouseHeater", function()
+		TriggerEvent("inventory:client:SetCurrentStash", "henhouseheater")
+		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhouseheater", {
+			maxweight = 500000,
+			slots = 50,
+		})
+	end)
+	-- SHOP --
+	RegisterNetEvent("bd-henhousejob:client:ingredientStore", function()
+		TriggerServerEvent("inventory:server:OpenInventory", "shop", "henhouse", Config.Items)
 	end)
 end

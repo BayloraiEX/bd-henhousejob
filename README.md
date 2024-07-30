@@ -34,7 +34,7 @@ QBShared.Items = {
 --HEN HOUSE ITEMS--
     --FOOD--
     hh_bacon_cheese_fries        = { name = 'hh_bacon_cheese_fries', label = 'Bacon Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_bacon_cheese_fries.png',unique = false,useable = true, shouldClose = true,  description = 'Delecious Bacon Cheese Fries!'},
-    hh_cheese_fries              = { name = 'hh_cheese_fries',       label = 'Bacon Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_cheese_fries.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Delecious Cheese Fries!'},
+    hh_cheese_fries              = { name = 'hh_cheese_fries',       label = 'Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_cheese_fries.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Delecious Cheese Fries!'},
     hh_chicken_strips            = { name = 'hh_chicken_strips',     label = 'Chicken Strips',   weight = 125,        type = 'item',      image = 'hh_chicken_strips.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Crispy Chicken Strips'},
     hh_fries                     = { name = 'hh_fries',              label = 'Fries',   weight = 125,        type = 'item',      image = 'hh_fries.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Freshly Cut Fries!'},
     hh_hot_wings                 = { name = 'hh_hot_wings',          label = 'Spicy Hot Wings',   weight = 125,        type = 'item',      image = 'hh_hot_wings.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Do you like it spicy?'},
@@ -104,10 +104,6 @@ Config.Consumables = {
         ['hh_sirloin_burger'] = math.random(50, 70),
         ['hh_sloppy_joe'] = math.random(50, 70),
         ['hh_wings'] = math.random(50, 70),
-    },
-    drink = {
-         -- HEN HOUSE ITEMS
-         ['hh_coffee'] = math.random(40, 75),
     },
     alcohol = {
         --HEN HOUSE DRINKS

@@ -43,9 +43,9 @@ local function CreateLocalNPC(index)
         FreezeEntityPosition(henhouseGaragePed, true)
         SetEntityInvincible(henhouseGaragePed, true)
         SetBlockingOfNonTemporaryEvents(henhouseGaragePed, true)
-	if Config.InventorySystem == 'ox' then
-		----- | CREATING TARGET FOR PED | -----
-		exports.ox_target:addLocalEntity(henhouseGaragePed, {
+        if Config.InventorySystem == 'ox' then
+            ----- | CREATING TARGET FOR PED | -----
+            exports.ox_target:addLocalEntity(henhouseGaragePed, {
                 {
                     name = 'henhouse_jobgarage',
                     event = 'bd-henhousejob:client:jobGarage',
@@ -64,29 +64,29 @@ local function CreateLocalNPC(index)
                         henhouse = 0
                     },
                 },
-            })
-	elseif Config.InventorySystem == 'qb' then
-		----- | CREATING TARGET FOR PED | -----
-		exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
-            options = {
-            { 
-                type = "client",
-                event = "bd-henhousejob:client:jobGarage",
-                icon = "fa-solid fa-warehouse",
-                label = "Garage",
-                job = "henhouse"
-            },
-            { 
-                type = "client",
-                event = "bd-henhousejob:client:storeGarage",
-                icon = "fa-solid fa-square-parking",
-                label = "Store Vehicle",
-                job = "henhouse"
-            },
-            }, 
-            distance = 1.5, 
         })
-	end
+        elseif Config.InventorySystem == 'qb' then
+            ----- | CREATING TARGET FOR PED | -----
+            exports['qb-target']:AddTargetEntity(henhouseGaragePed, { 
+                options = {
+                { 
+                    type = "client",
+                    event = "bd-henhousejob:client:jobGarage",
+                    icon = "fa-solid fa-warehouse",
+                    label = "Garage",
+                    job = "henhouse"
+                },
+                { 
+                    type = "client",
+                    event = "bd-henhousejob:client:storeGarage",
+                    icon = "fa-solid fa-square-parking",
+                    label = "Store Vehicle",
+                    job = "henhouse"
+                },
+                }, 
+                distance = 1.5, 
+            })
+        end
     LocalNPCs[index].henhouseGaragePed = henhouseGaragePed
 end
 
