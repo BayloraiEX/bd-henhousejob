@@ -11,7 +11,8 @@
                               |_|                             
 --]]
 Config = {}
-Config.InventorySystem = 'qb' -- Supports 'qb' & 'ox'
+Config.TargetSystem = 'qb' -- Supports 'qb' & 'ox'
+Config.InventorySystem = 'qb' -- Supports 'qb' & 'ox' & 'qs'
 ----- | PED STUFF | -----
 Config.henhouseGaragePed = {
     {
