@@ -46,7 +46,7 @@ if Config.TargetSystem == 'ox' then
 				icon = 'fa-solid fa-temperature-arrow-up',
 				label = 'Heater',
 				groups = {
-					henhouse = 0
+					Config.Jobname
 				},
 			},
 		}
@@ -64,7 +64,7 @@ if Config.TargetSystem == 'ox' then
 				icon = 'fa-solid fa-temperature-empty',
 				label = 'Fridge',
 				groups = {
-					henhouse = 0
+					Config.Jobname
 				},
 			},
 		}
@@ -80,15 +80,35 @@ if Config.TargetSystem == 'ox' then
 				name = 'henhouse_shop',
 				icon = 'fa-solid fa-shopping-basket',
 				label = 'Ingredient Shop',
+				event = 'bd-henhousejob:client:ingredientShop',
 				groups = {
-					henhouse = 0
+					Config.Jobname
 				},
-				onSelect = function ()
-					exports.ox_inventory:openInventory('shop', {type = 'hhshop'})
-				end
-			},
+			}
 		}
 	})
+	if Config.TargetSystem and Config.InventorySystem == 'ox' then
+		exports.ox_target:addBoxZone({
+			coords = vector4(-301.62, 6272.44, 31.5, 315.61),
+			size = vec3(1, 1, 1),
+			rotation = 45,
+			debug = drawZones,
+			options = {
+				{
+					name = 'henhouse_shop',
+					icon = 'fa-solid fa-shopping-basket',
+					label = 'Ingredient Shop',
+					groups = {
+						Config.Jobname
+					},
+					onSelect = function ()
+						exports.ox_inventory:openInventory('shop', {type = 'hhshop'})
+					end
+				},
+			}
+		})
+	else
+	end
 elseif Config.TargetSystem == 'qb' then
 	-- TRAY 1 --
 	exports['qb-target']:AddBoxZone("HenHouseFrontTray1", vector3(-297.21, 6260.84, 31.58), 0.9, 0.9, {
@@ -140,7 +160,7 @@ elseif Config.TargetSystem == 'qb' then
 				event = "bd-henhousejob:client:henhouseFridge",
 				icon = "fa-solid fa-temperature-empty",
 				label = "Fridge",
-				job = "henhouse",
+				job = Config.Jobname,
 			},
 		},
 		distance = 2.5
@@ -162,7 +182,7 @@ elseif Config.TargetSystem == 'qb' then
 				event = "bd-henhousejob:client:henhouseHeater",
 				icon = "fa-solid fa-temperature-arrow-up",
 				label = "Heater",
-				job = "henhouse",
+				job = Config.Jobname,
 			},
 		},
 		distance = 2.5
@@ -181,7 +201,7 @@ elseif Config.TargetSystem == 'qb' then
 				event = "bd-henhousejob:client:ingredientShop",
 				icon = "fa-solid fa-basket-shopping",
 				label = "Ingredients",
-				job = "henhouse",
+				job = Config.Jobname,
 			},
 		},
 		distance = 2.5
@@ -236,42 +256,5 @@ elseif Config.InventorySystem == 'qb' then
 	-- SHOP --
 	RegisterNetEvent("bd-henhousejob:client:ingredientShop", function()
 		TriggerServerEvent('bd-henhousejob:server:ingredientShop')
-	end)
-elseif Config.InventorySystem == 'qs' then
-	-- TRAY 1 --
-	RegisterNetEvent("bd-henhousejob:client:henhouseTray1", function()
-		TriggerEvent("inventory:client:SetCurrentStash", "henhousetray1")
-		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousetray1", {
-			maxweight = 10000,
-			slots = 5,
-		})
-	end)
-	-- TRAY 2 --
-	RegisterNetEvent("bd-henhousejob:client:henhouseTray2", function()
-		TriggerEvent("inventory:client:SetCurrentStash", "henhousetray2")
-		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousetray2", {
-			maxweight = 10000,
-			slots = 5,
-		})
-	end)
-	-- FRIDGE --
-	RegisterNetEvent("bd-henhousejob:client:henhouseFridge", function()
-		TriggerEvent("inventory:client:SetCurrentStash", "henhousefridge")
-		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhousefridge", {
-			maxweight = 500000,
-			slots = 50,
-		})
-	end)
-	-- HEATER --
-	RegisterNetEvent("bd-henhousejob:client:henhouseHeater", function()
-		TriggerEvent("inventory:client:SetCurrentStash", "henhouseheater")
-		TriggerServerEvent("inventory:server:OpenInventory", "stash", "henhouseheater", {
-			maxweight = 500000,
-			slots = 50,
-		})
-	end)
-	-- SHOP --
-	RegisterNetEvent("bd-henhousejob:client:ingredientShop", function()
-		TriggerServerEvent("inventory:server:OpenInventory", "shop", "henhouse", Config.Items)
 	end)
 end

@@ -15,7 +15,7 @@ if Config.TargetSystem == 'ox' then
         icon = 'fa-solid fa-fire-burner',
         label = 'Cook Menu',
         groups = {
-          henhouse = 0
+          Config.Jobname
         },
       },
     }
@@ -35,7 +35,7 @@ elseif Config.TargetSystem == 'qb' then
         event = "bd-henhousejob:client:OpenCookMenu",
         icon = "fa-solid fa-fire-burner",
         label = "Cook Menu",
-        job = "henhouse",
+        job = Config.Jobname,
       },
     },
     distance = 2.5

@@ -52,7 +52,7 @@ local function CreateLocalNPC(index)
                     icon = 'fa-solid fa-warehouse',
                     label = 'Garage',
                     groups = {
-                        henhouse = 0
+                        Config.Jobname
                     },
                 },
                 {
@@ -61,7 +61,7 @@ local function CreateLocalNPC(index)
                     icon = 'fa-solid fa-square-parking',
                     label = 'Store Vehicles',
                     groups = {
-                        henhouse = 0
+                        Config.Jobname
                     },
                 },
         })
@@ -74,14 +74,14 @@ local function CreateLocalNPC(index)
                     event = "bd-henhousejob:client:jobGarage",
                     icon = "fa-solid fa-warehouse",
                     label = "Garage",
-                    job = "henhouse"
+                    job = Config.Jobname
                 },
                 { 
                     type = "client",
                     event = "bd-henhousejob:client:storeGarage",
                     icon = "fa-solid fa-square-parking",
                     label = "Store Vehicle",
-                    job = "henhouse"
+                    job = Config.Jobname
                 },
                 }, 
                 distance = 1.5, 
@@ -124,52 +124,51 @@ CreateThread(function()
     DecorRegister("t_vehicle", 1)
 end)
 
------ | SETTING THE CLOCK IN/OUT TARGET | -----
-exports['qb-target']:AddBoxZone("henhouseHutClock", vector3(-294.58, 6263.28, 30.52), 0.9, 0.9, {
-	name = "henhouseHutClock",
-	heading = 347.27,
-	debugPoly = false,
-	minZ = 30.52 - 2,
-	maxZ = 30.52 + 2,
-}, {
-	options = {
-		{
-            type = "client",
-            event = "bd-henhousejob:client:ToggleDuty",
-			icon = "fa-solid fa-clipboard-user",
-			label = "Clock In/Out",
-			job = "henhouse",
-		},
-	},
-	distance = 2.5
-})
+if Config.TargetSystem == 'qb' then
+    exports['qb-target']:AddBoxZone("henhouseHutClock", vector3(-294.58, 6263.28, 30.52), 0.9, 0.9, {
+        name = "henhouseHutClock",
+        heading = 347.27,
+        debugPoly = false,
+        minZ = 30.52 - 2,
+        maxZ = 30.52 + 2,
+    }, {
+        options = {
+            {
+                type = "client",
+                event = "bd-henhousejob:client:ToggleDuty",
+                icon = "fa-solid fa-clipboard-user",
+                label = "Clock In/Out",
+                job = Config.Jobname,
+            },
+        },
+        distance = 2.5
+    })
+elseif Config.TargetSystem == 'ox' then
+    exports.ox_target:addBoxZone({
+		coords = vector4(-294.61, 6263.26, 31.54, 314.39),
+		size = vec3(1, 1, 1),
+		rotation = 45,
+		options = {
+			{
+				name = 'henhouse_duty',
+				event = 'bd-henhousejob:client:ToggleDuty',
+				icon = 'fa-solid fa-clipboard-user',
+				label = 'Clock In/Out',
+				groups = {
+					Config.Jobname
+				},
+			},
+		}
+	})
+end
 
 ----- | REGISTERING THE EVENT TO TOGGLE DUTY ON/OFF | -----
 RegisterNetEvent('bd-henhousejob:client:ToggleDuty', function()
     TriggerServerEvent("QBCore:ToggleDuty")
 end)
 
------ | SETTING THE CLOTHING MENU TARGET | -----
-exports['qb-target']:AddBoxZone("henhouseClothing", vector3(-298.91, 6269.78, 34.8), 0.9, 0.9, {
-	name = "henhouseClothing",
-	heading = 347.27,
-	debugPoly = false,
-	minZ = 34.8 - 2,
-	maxZ = 34.8 + 2,
-}, {
-	options = {
-		{
-            type = "client",
-            event = "qb-clothing:client:openMenu",
-			icon = "fa-solid fa-shirt",
-			label = "Change Rooms",
-			job = "henhouse",
-		},
-	},
-	distance = 2.5
-})
-
------ | SETTING THE BOSS MENU TARGET | -----
+if Config.TargetSystem == 'qb' then
+    ----- | SETTING THE BOSS MENU TARGET | -----
 exports['qb-target']:AddBoxZone("henhouseBossMenu", vector3(-294.63, 6266.69, 34.84), 0.9, 0.9, {
 	name = "henhouseBossMenu",
 	heading = 347.27,
@@ -188,3 +187,21 @@ exports['qb-target']:AddBoxZone("henhouseBossMenu", vector3(-294.63, 6266.69, 34
 	},
 	distance = 2.5
 })
+elseif Config.TargetSystem == 'ox' then
+    exports.ox_target:addBoxZone({
+		coords = vector4(-295.13, 6266.09, 34.85, 160.55),
+		size = vec3(1, 1, 1),
+		rotation = 45,
+		options = {
+			{
+				name = 'henhouse_bossmenu',
+				event = 'qb-bossmenu:client:OpenMenu',
+				icon = 'fa-solid fa-right-to-bracket',
+				label = 'Boss Menu',
+				groups = {
+					henhouse = 4
+				},
+			},
+		}
+	})
+end

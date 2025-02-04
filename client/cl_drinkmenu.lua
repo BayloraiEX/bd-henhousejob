@@ -14,7 +14,7 @@ if Config.TargetSystem == 'ox' then
         icon = 'fa-solid fa-beer-mug-empty',
         label = 'Beer Fridge',
         groups = {
-          henhouse = 0
+          Config.Jobname
         },
       },
     }
@@ -32,7 +32,7 @@ if Config.TargetSystem == 'ox' then
         icon = 'fa-solid fa-martini-glass',
         label = 'Drink Menu',
         groups = {
-          henhouse = 0
+          Config.Jobname
         },
       },
     }
@@ -50,7 +50,7 @@ if Config.TargetSystem == 'ox' then
         icon = 'fa-solid fa-mug-saucer',
         label = 'Coffee Machine',
         groups = {
-          henhouse = 0
+          Config.Jobname
         },
       },
     }
@@ -70,7 +70,7 @@ elseif Config.TargetSystem == 'qb' then
             event = "bd-henhousejob:client:OpenBeerMenu",
             icon = "fa-solid fa-beer-mug-empty",
             label = "Beer Fridge",
-            job = "henhouse",
+            job = Config.Jobname,
         },
     },
     distance = 2.5
@@ -89,7 +89,7 @@ elseif Config.TargetSystem == 'qb' then
             event = "bd-henhousejob:client:OpenDrinkMenu",
             icon = "fa-solid fa-martini-glass",
             label = "Drink Menu",
-            job = "henhouse",
+            job = Config.Jobname,
         },
     },
     distance = 2.5
@@ -108,7 +108,7 @@ elseif Config.TargetSystem == 'qb' then
             event = "bd-henhousejob:client:OpenCoffeeMenu",
             icon = "fa-solid fa-mug-saucer",
             label = "Coffee Machine",
-            job = "henhouse",
+            job = Config.Jobname,
         },
     },
     distance = 2.5
