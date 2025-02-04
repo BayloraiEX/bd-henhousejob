@@ -31,7 +31,7 @@ QBShared.Jobs = {
 Copy and Paste into qb-core --> shared --> items.lua
 ```
 QBShared.Items = {
---HEN HOUSE ITEMS--
+--HEN HOUSE ITEMS-
     --FOOD--
     hh_bacon_cheese_fries        = { name = 'hh_bacon_cheese_fries', label = 'Bacon Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_bacon_cheese_fries.png',unique = false,useable = true, shouldClose = true,  description = 'Delecious Bacon Cheese Fries!'},
     hh_cheese_fries              = { name = 'hh_cheese_fries',       label = 'Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_cheese_fries.png',   unique = false,  useable = true,  shouldClose = true,  description = 'Delecious Cheese Fries!'},
