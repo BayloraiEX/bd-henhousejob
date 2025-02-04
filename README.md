@@ -11,7 +11,6 @@ ensure bd-henhousejob
 END OF EXAMAPLE:
 Copy and Paste into qb-core --> shared --> jobs.lua
 ```
-QBShared.Jobs = {
     henhouse = {
 		label = 'Hen House',
 		defaultDuty = true,
@@ -25,12 +24,10 @@ QBShared.Jobs = {
 			['5'] = { name = 'CEO', isboss = true, payment = 90 },
 		},
 	},
-}
 ```
 
 Copy and Paste into qb-core --> shared --> items.lua
 ```
-QBShared.Items = {
 --HEN HOUSE ITEMS-
     --FOOD--
     hh_bacon_cheese_fries        = { name = 'hh_bacon_cheese_fries', label = 'Bacon Cheese Fries',   weight = 125,        type = 'item',      image = 'hh_bacon_cheese_fries.png',unique = false,useable = true, shouldClose = true,  description = 'Delecious Bacon Cheese Fries!'},
@@ -82,13 +79,12 @@ QBShared.Items = {
     hh_rawchicken_strips     	     = { name = 'hh_rawchicken_strips', 	 label = 'Raw Chicken Strips', 	 weight = 100, 		 type = 'item', 	 image = 'hh_rawchicken_strips.png',  unique = false,  useable = false, shouldClose = true,  description = 'Ingredient'},
     hh_rawchicken_wings     	     = { name = 'hh_rawchicken_wings', 	 label = 'Raw Chicken Wings', 	 weight = 100, 		 type = 'item', 	 image = 'hh_rawchicken_wings.png',  unique = false,  useable = false, shouldClose = true,  description = 'Ingredient'},
     hh_spaghetti_noodles    	     = { name = 'hh_spaghetti_noodles', 	 label = 'Spaghetti Noodles', 	 weight = 100, 		 type = 'item', 	 image = 'hh_spaghetti_noodles.png',  unique = false,  useable = false, shouldClose = true,  description = 'Ingredient'},
-}
 ```
 
 Copy and Paste into qb-smallresources --> config.lua
 ```
 Config.Consumables = {
-    eat = {
+    eat
         -- HEN HOUSE ITEMS
         ['hh_bacon_cheese_fries'] = math.random(50, 70),
         ['hh_cheese_fries'] = math.random(45, 65),
@@ -104,8 +100,7 @@ Config.Consumables = {
         ['hh_sirloin_burger'] = math.random(50, 70),
         ['hh_sloppy_joe'] = math.random(50, 70),
         ['hh_wings'] = math.random(50, 70),
-    },
-    alcohol = {
+    alcohol
         --HEN HOUSE DRINKS
         ['hh_ambeer'] = math.random(30, 40),
         ['hh_beer'] = math.random(30, 40),
@@ -128,8 +123,6 @@ Config.Consumables = {
         ['hh_silverbullet_shot'] = math.random(5, 20),
         ['hh_voodoo_shot'] = math.random(5, 20),
         ['hh_woowoo_shot'] = math.random(5, 20),
-    },
-}
 ```
 
 Take all photos from images folder and put it into qb-inventory --> html --> images
