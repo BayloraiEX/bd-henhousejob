@@ -13,7 +13,7 @@
 Config = {}
 Config.TargetSystem = 'ox' -- Supports 'qb' & 'ox'
 Config.InventorySystem = 'qb' -- Supports 'qb' & 'ox' & 'qs'
-Config.Jobname = 'henhouse' -- Match jobname in jobs.lua
+Config.Jobname = 'henhose' -- Match jobname in jobs.lua
 ----- | PED STUFF | -----
 Config.henhouseGaragePed = {
     {
