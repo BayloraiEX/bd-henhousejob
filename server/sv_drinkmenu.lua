@@ -9,7 +9,7 @@ if Config.InventorySystem == 'ox' then
     local Player = QBCore.Functions.GetPlayer(src)
     ox_inventory:AddItem(src, 'hh_ambeer', 1)
     lib.notify(source, {
-      id = 'hen_house',
+      id = 'hen_huse',
       title = 'Hen House',
       description = 'You grabbed a AM Beer',
       showDuration = false,
