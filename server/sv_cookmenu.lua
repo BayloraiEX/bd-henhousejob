@@ -9,7 +9,7 @@ if Config.InventorySystem == 'ox' then
     if not Player then return end
     if not ox_inventory:RemoveItem(src, 'hh_potatoes', 2, false) then
       lib.notify(source, {
-        id = 'hen_huse',
+        id = 'hen_house',
         title = 'Hen House',
         description = 'You need 2x Potatoes to make Bacon Cheese Fries',
         showDuration = false,
